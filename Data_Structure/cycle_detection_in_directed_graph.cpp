@@ -25,6 +25,7 @@ bool iscycle(int src, vector<vector<int>> &adj, vector<bool>&visited, vector<int
 
 int main(){
     int n,m;
+    cin>>n>>m;
     vector<vector < int >> adj(n);
     for (int i=0;i<m;i++){
         int u,v;
@@ -34,10 +35,13 @@ int main(){
     }
     bool cycle=false;
     vector<int> stack1(n,0);
-    vector<bool> visited(n,0);
+    vector<bool> visited(n,false);
+
+
     for(int i=0;i<n;i++){
         if(!visited[i] and iscycle(i,adj,visited,stack1)){
             cycle=true;
+            break;
         } 
     }
     
@@ -47,4 +51,5 @@ int main(){
     else{
         cout<<"cycle is not present";}
 
-    return 0;}
+    return 0;
+    }
